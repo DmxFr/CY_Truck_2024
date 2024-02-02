@@ -1,6 +1,6 @@
 //#include <string.h>
 
-//Safely allocate the given size. The program exits on failure.
+
 void* safeMalloc(size_t size) {
   void* pointer = malloc(size);
   if(pointer == NULL) {
@@ -10,7 +10,7 @@ void* safeMalloc(size_t size) {
   return pointer;
 }
 
-//Safely free the given pointer. The program exists on failure.
+
 void safeFree(void* ptr) {
   if(ptr == NULL) {
     error("Tried to free NULL");
@@ -23,7 +23,7 @@ void error(char* message) {
   exit(1);
 }
 
-//Return the textual length of the given integer.
+
 int lengthOfInt(int n) {
   int i = 0;
   if(n < 0) i++;
@@ -34,7 +34,7 @@ int lengthOfInt(int n) {
   return i;
 }
 
-//Clear/Flush the given stream.
+
 void clear(FILE* stream){
   int nh;
   do{
