@@ -59,8 +59,6 @@ fi
 
 function traitement_d1()
 {
-    #Voici un script Shell qui réalise le traitement [D1] en utilisant uniquement des commandes Unix. Assurez-vous que le fichier d'entrée est correctement formaté avec les informations des trajets. Ce script suppose que chaque ligne du fichier d'entrée représente un trajet avec le nom du conducteur.
-
     # Extraction et comptage des trajets par conducteur
     trajets_par_conducteur=$(cat $fichier_csv | cut -f1,6 -d";" | sort | uniq | cut -f2 -d";" | sort | uniq -c | sort -nr )
 
@@ -89,15 +87,11 @@ function traitement_d1()
 
     echo "Le graphique a été généré avec succès."
 
-    #Ce script utilise les commandes Unix telles que awk, sort, et uniq pour effectuer le traitement, puis génère un graphique avec GnuPlot. N'oubliez pas de rendre le script exécutable avec la commande chmod +x nom_du_script.sh et de l'appeler avec le chemin du fichier CSV en argument (./nom_du_script.sh chemin_fichier_CSV).
-
 }
 
 
 function traitement_d2()
 {
-    #Pour ce traitement, nous allons extraire les distances totales parcourues par chaque conducteur à partir du fichier CSV, puis nous sélectionnerons les 10 conducteurs avec les distances les plus grandes pour créer un histogramme horizontal.*/
-
 
     # Extraction et calcul des distances totales par conducteur
     distances_par_conducteur=$(awk -F';' '{total[$6]+=$5} END {for (i in total) print total[i], i}' "$fichier_csv" | sort -nr)
@@ -126,9 +120,6 @@ function traitement_d2()
     rm data_d2.txt script_d2.gp
 
     echo "Le graphique D2 a été généré avec succès."
-
-    # Ce script récupère les distances totales par conducteur à partir du fichier CSV, sélectionne les 10 conducteurs avec les distances les plus grandes, crée un fichier de données pour GnuPlot, génère le graphique horizontal, puis nettoie les fichiers temporaires. Assurez-vous d'adapter la colonne correspondant à la distance dans votre fichier CSV (ici, c'est la colonne 3 avec l'option -F',' '{total[$1]+=$3}).
-
 }
 
 
@@ -173,7 +164,6 @@ EOF
     echo "Le graphique L a été généré avec succès."
 
 
-    # Ce script prend en compte un fichier CSV contenant les données des trajets routiers. Il calcule la distance totale pour chaque trajet, sélectionne les 10 trajets avec les distances les plus grandes, puis crée un graphique d'histogramme vertical montrant l'identifiant du trajet en abscisse et la distance en kilomètres en ordonnée.
 
 }
 
@@ -186,13 +176,6 @@ function traitement_t()
 
 function traitement_s()
 {
-    # EN C
-
-    # Pour un traitement aussi spécifique, une connaissance précise de la structure du fichier CSV est nécessaire. Pour simplifier, supposons que le fichier CSV a trois colonnes : ID_trajet, Ville_depart, Ville_arrivee.
-
-    # Voici un exemple simplifié de code en C pour traiter ce cas, en utilisant des structures pour stocker les données des trajets et des villes, ainsi qu'un arbre AVL pour le tri :
-
-    #UTILISER SSI LE CODE EN C NE FONCTIONNE PAS (VOIR SUITE)
     output_file="demo/trajets.csv"
 
 
@@ -236,8 +219,6 @@ echo -e '
 # Enregistrer le temps de début
 start_time=$(date +%s)
 
-
-# script Shell prend en paramètre le chemin du fichier CSV d'entrée et d'autres paramètres pour choisir les traitements, vous pouvez le concevoir de la manière suivante
 
 
 # Vérification et exécution des traitements en fonction des choix
