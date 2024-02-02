@@ -29,7 +29,7 @@ sudo apt-get install gnuplot
 
 - Make pour construire automatiquement des programmes et des bibliothèques exécutables:
 
-sudo apt-get install get
+sudo apt-get install make
 
 
 ## GITHUB
